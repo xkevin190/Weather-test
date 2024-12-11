@@ -8,12 +8,20 @@ export const getCityListThunk = createAsyncThunk<
   WeatherData,
   string,
   { rejectValue: string }
->('weather/fetchWeather', async (cityName, { rejectWithValue }) => {
+>('weather/getLocation', async (cityName) => {
   
-    const response =  await getCityListRequest(cityName);
+    const result =  await getCityListRequest(cityName);
     
+    if(!result.successful) {
+      return Promise.reject(null);
+    }
 
-    console.log("response", JSON.stringify(response))
+    return result.response?.geonames.map((item) => {
+       return {
+        city: item.name,
+        country: item.countryName
+       }
+    });
   
 });
 
@@ -30,12 +38,12 @@ const weatherSlice = createSlice({
     });
     builder.addCase(getCityListThunk.fulfilled, (state, action) => {
       state.loading = false;
-      state.error = null;
-      state.listLocation = action.payload.listLocation;
+      state.error = false;
+      state.listLocation = action.payload;
     });
     builder.addCase(getCityListThunk.rejected, (state, action) => {
-      // state.loading = false;
-      // state.error = action.payload as string;
+      state.loading = false;
+      state.error = true;
     });
   },
 });

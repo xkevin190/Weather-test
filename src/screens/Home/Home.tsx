@@ -11,7 +11,9 @@ import useLocation from './hooks/LocationHook';
 
 const Home: React.FC = () => {
     const { navigate} = useNavigation<NavigationProps>();
-    const { findCity } = useLocation();
+    const { findCity, listLocation } = useLocation();
+
+    console.log('listLocation', listLocation)
     return (
         <View style={styles.container}>
             <Search  onchange={findCity} />

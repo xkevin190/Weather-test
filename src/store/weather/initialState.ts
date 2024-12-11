@@ -8,7 +8,7 @@ export interface WeatherState {
   listLocation: Array<ILocation>;
   selectedLocation: ILocation | null;
   loading: boolean;
-  error: string | null;
+  error: boolean;
 }
 
 // Define the initial state
@@ -16,5 +16,5 @@ export const initialState: WeatherState = {
   listLocation: [],
   selectedLocation: null,
   loading: false,
-  error: null,
+  error: false,
 };
