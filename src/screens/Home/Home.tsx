@@ -1,26 +1,21 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
+import { styles } from './Home.style';
+import { useNavigation } from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { DETAILS } from '../../Navigator/Routes';
+import { NavigationProps } from '../../types/navigation';
+
 
 const Home: React.FC = () => {
+    const { navigate} = useNavigation<NavigationProps>();
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Welcome to the Weather App</Text>
+            <TouchableOpacity onPress={() => navigate(DETAILS)}>
+                <Text style={styles.title}>Welcome to the Weather App</Text>
+            </TouchableOpacity>
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    title: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-});
 
 export default Home;

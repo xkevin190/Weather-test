@@ -3,8 +3,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from '../screens/Home';
 import DetailsScreen from '../screens/SeeWeather';
+import { RootParamList } from '../types/navigation';
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<RootParamList>();
 
 const RootNavigator = () => {
     return (
