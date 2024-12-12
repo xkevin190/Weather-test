@@ -1,7 +1,8 @@
 
 export interface ILocation {
   city: string;
-  country: string;
+  country: strin
+  id: number;
 }
 
 export interface WeatherState {

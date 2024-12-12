@@ -24,3 +24,9 @@ export interface LocationResponse {
     fcode: string;
   }
   
+
+export interface Location {
+    city: string;
+    country: string;
+    id: number;
+}

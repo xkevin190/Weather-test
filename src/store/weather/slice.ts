@@ -19,7 +19,8 @@ export const getCityListThunk = createAsyncThunk<
     return result.response?.geonames.map((item) => {
        return {
         city: item.name,
-        country: item.countryName
+        country: item.countryName,
+        id: item.geonameId
        }
     });
   
