@@ -6,4 +6,6 @@ export interface WeatherData {
     sunriseTime: string;
     sunsetTime: string;
     currentWeather: string;
+    provider: string;
+    ProviderColor: string;
   }

@@ -1,4 +1,7 @@
+import { ServiceColor } from "../constants/color";
 import request from "../services/ApiService";
+import { ApiResponse } from "../types/services";
+import { WeatherData } from "../types/weather";
 
 const APIKEY = "dda12dcb6ca74b8e9ae220828241212";
 const BASEURL = "https://api.weatherapi.com/v1/forecast.json";
@@ -12,7 +15,8 @@ export const getWeather = async (city: string) => {
     if(result.successful){
          result.response = parseServiceResponse(result.response);
     }
-    console.log("WeatherApiService", JSON.stringify(result));
+    
+    return result as ApiResponse<WeatherData>;
 };
 
 const parseServiceResponse = (response: any) => {
@@ -24,5 +28,6 @@ const parseServiceResponse = (response: any) => {
         sunsetTime: response.forecast.forecastday[0].astro.sunset,
         currentWeather: response.current.condition.text,
         provider: "weatherApi",
+        ProviderColor: ServiceColor.weatherApi
     }
 };

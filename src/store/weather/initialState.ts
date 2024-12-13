@@ -1,3 +1,4 @@
+import { ServiceColor } from "../../constants/color";
 import { WeatherProvider } from "../../services/WeatherService";
 
 export interface WeatherState {
@@ -9,7 +10,9 @@ export interface WeatherState {
     currentWeather: string | null;
     loading: boolean;
     error: string | null;
-    provider: WeatherProvider | null;
+    provider: WeatherProvider;
+    ProviderColor: string;
+
   }
   
   
@@ -22,5 +25,6 @@ export const initialState: WeatherState = {
     currentWeather: null,
     loading: false,
     error: null,
-    provider: null,
+    provider: WeatherProvider.VisualCrossing,
+    ProviderColor: ServiceColor.visualCrossing
   };
