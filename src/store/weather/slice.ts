@@ -33,7 +33,7 @@ const weatherSlice = createSlice({
     builder
       .addCase(fetchWeatherData.pending, (state) => {
         state.loading = true;
-        state.error = null;
+        state.error = false;
       })
       .addCase(fetchWeatherData.fulfilled, (state, action: PayloadAction<WeatherData>) => {
         state.loading = false;
@@ -45,9 +45,11 @@ const weatherSlice = createSlice({
         state.currentWeather = action.payload.currentWeather;
         state.provider = action.payload.provider as WeatherProvider;
         state.ProviderColor = action.payload.ProviderColor
+        state.error = false;
       })
       .addCase(fetchWeatherData.rejected, (state, action) => {
         state.loading = false;
+        state.error = true;
       });
   },
 });

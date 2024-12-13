@@ -9,7 +9,7 @@ export interface WeatherState {
     sunsetTime: string | null;
     currentWeather: string | null;
     loading: boolean;
-    error: string | null;
+    error: boolean;
     provider: WeatherProvider;
     ProviderColor: string;
 
@@ -24,7 +24,7 @@ export const initialState: WeatherState = {
     sunsetTime: null,
     currentWeather: null,
     loading: false,
-    error: null,
+    error: false,
     provider: WeatherProvider.VisualCrossing,
     ProviderColor: ServiceColor.visualCrossing
   };
