@@ -8,12 +8,8 @@ import useWeather from './hook/useWeather';
 import { WeatherProvider } from '../../services/WeatherService';
 
 
-
 const SeeWeather = () => {
     const {weather, location , changeProvider} = useWeather()
-    const [selectedProvider, setSelectedProvider] = useState(weather.provider);
-
-    
 
     return (
       <View style={[styles.weatherContainer, {backgroundColor: weather.ProviderColor}]}>

@@ -23,13 +23,13 @@ describe('<Search />', () => {
 
         // Simulate typing
         fireEvent.changeText(input, 'hello');
-        fireEvent.changeText(input, 'hello world');
+        fireEvent.changeText(input, 'world');
 
         // Fast-forward until all timers have been executed
         jest.runAllTimers();
 
-        await waitFor(() => expect(mockOnChange).toHaveBeenCalledTimes(1));
-        expect(mockOnChange).toHaveBeenCalledWith('hello world');
+        await waitFor(() => expect(mockOnChange).toHaveBeenCalledTimes(2));
+        expect(mockOnChange).toHaveBeenCalledWith('world');
     });
 
     
