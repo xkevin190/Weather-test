@@ -9,7 +9,6 @@ export const getCityListThunk = createAsyncThunk<
   string,
   { rejectValue: string }
 >('weather/getLocation', async (cityName) => {
-
     const result =  await getCityListRequest(cityName);
     if(!result.successful) {
       return Promise.reject(null);

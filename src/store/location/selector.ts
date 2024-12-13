@@ -9,12 +9,12 @@ export const getCountrySelector = (state: RootState) => {
 }
 
 export const getCountryAndCitySelector = (state: RootState) => {
-    const { city, country } = state.location.selectedLocation || {};
+    const { city, country } = state.location?.selectedLocation ?? { city: '', country: '' };
     return `${city}, ${country}`;
 }
 
 export const getListLocationSelector = (state: RootState) => {
-    return state.location.listLocation;
+    return state.location?.listLocation ?? [];
 }
 
 export const getLocationSelector = (state: RootState) => {

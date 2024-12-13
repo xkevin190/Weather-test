@@ -1,17 +1,16 @@
 import request, { RESPONSE_STATUS, EHttpMethod } from './ApiService'; // Adjust the import according to your file structure
 
-// Mock fetch globally
+
 global.fetch = jest.fn();
 
 describe('request function', () => {
   afterEach(() => {
-    jest.clearAllMocks(); // Clear mocks after each test
+    jest.clearAllMocks(); 
   });
 
   it('should handle a successful response with JSON data', async () => {
     const mockResponse = { message: 'Success' };
     
-    // Mock fetch to resolve with a successful response
     (fetch as jest.Mock).mockResolvedValueOnce({
       status: RESPONSE_STATUS.OK_RESPONSE,
       json: jest.fn().mockResolvedValueOnce(mockResponse),
@@ -31,10 +30,10 @@ describe('request function', () => {
   });
 
   it('should handle a successful response with no content', async () => {
-    // Mock fetch to resolve with a 204 status (No Content)
+    
     (fetch as jest.Mock).mockResolvedValueOnce({
       status: RESPONSE_STATUS.OK_NO_RESPONSE,
-      json: jest.fn(), // No content in response
+      json: jest.fn(), 
     });
 
     const options = {
@@ -50,7 +49,6 @@ describe('request function', () => {
   });
 
   it('should handle errors and return a 400 status', async () => {
-    // Mock fetch to throw an error
     (fetch as jest.Mock).mockRejectedValueOnce(new Error('Network error'));
 
     const options = {
@@ -68,9 +66,9 @@ describe('request function', () => {
   it('should handle unhandled status codes and return a proper response', async () => {
     const mockErrorResponse = { error: 'Unhandled error' };
 
-    // Mock fetch to resolve with an unhandled response
+    
     (fetch as jest.Mock).mockResolvedValueOnce({
-      status: 500, // Simulating a server error
+      status: 500, 
       json: jest.fn().mockResolvedValueOnce(mockErrorResponse),
     });
 

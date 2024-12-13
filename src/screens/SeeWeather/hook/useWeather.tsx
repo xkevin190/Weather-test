@@ -23,8 +23,7 @@ const useWeather = () => {
 
 
     const changeProvider = (provider: WeatherProvider) => {
-        dispatch(changeWeatherProvider(provider));
-        // dispatch(fetchWeatherData(provider));
+        dispatch(changeWeatherProvider(provider));  
     };
 
     return { weather, location, changeProvider };
