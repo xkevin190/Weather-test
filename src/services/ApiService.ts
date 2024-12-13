@@ -8,14 +8,6 @@ import type {
   export enum RESPONSE_STATUS {
     OK_RESPONSE = 200, // RETURN RESPONSE.JSON
     OK_NO_RESPONSE = 204, // RETURN UNDEFINED
-    FAILED_BAD_REQUEST = 400, // RETURN BAD INFO
-    FAILED_NO_PERMISSIONS = 401, // IF LOGGED (LOGOUT)
-    FAILED_CREDENTIALS = 403,
-    FAILED_NOT_FOUND = 404, // LOG BAD INFO (ALERT SOMETHING WAS WRONG)
-    FAILED_APP_VERSION = 409, // IF LOGGED (LOGOUT) - ALWAYS ALERT FOR UPDATE
-    FAILED_TO_MANY_REQUESTS = 429,
-    FAILED_UNKNOWN_ERROR = 500, // LOG BAD INFO (ALERT SOMETHING WAS WRONG)
-    FAILED_BAD_GATEWAY = 502, // LOG BAD INFO (ALERT SOMETHING WAS WRONG)
   }
   
   export enum EHttpMethod {
@@ -61,7 +53,6 @@ import type {
         status: response.status,
       };
     } catch (e: any) {
-        console.error(e);
       return {
         successful: false,
         status: 400,

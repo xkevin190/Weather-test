@@ -1,11 +1,8 @@
 
-import { changeWeatherProvider, fetchWeatherData, resetWeatherData } from './slice'; 
+import { changeWeatherProvider, fetchWeatherData } from './slice'; 
 import { initialState } from './initialState';
 import { WeatherData } from '../../types/weather'; // Assuming these types exist
 import { getWeather, WeatherProvider } from '../../services/WeatherService';
-import WeatherReducer from './slice';
-import { configureStore } from '@reduxjs/toolkit';
-import { get } from 'react-native/Libraries/TurboModule/TurboModuleRegistry';
 import { getMockStore } from '../../mock/mockStore';
 import { MockPayloadWeather, successResponse } from '../../mock/weatherMock';
 

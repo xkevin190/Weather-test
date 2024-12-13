@@ -1,9 +1,8 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { ILocation, initialState  } from './initialState';
-import { getCityListRequest } from '../../services/HttpsService';
-import { set } from 'react-hook-form';
+import { getCityListRequest } from '../../services/LocationService';
 
-// Define TypeScript types for weather data
+
 
 export const getCityListThunk = createAsyncThunk<
   ILocation[],
@@ -12,7 +11,6 @@ export const getCityListThunk = createAsyncThunk<
 >('weather/getLocation', async (cityName) => {
 
     const result =  await getCityListRequest(cityName);
-    
     if(!result.successful) {
       return Promise.reject(null);
     }
@@ -29,7 +27,7 @@ export const getCityListThunk = createAsyncThunk<
   
 });
 
-// Create a slice for weather data
+
 const locationSlice = createSlice({
   name: 'location',
   initialState,

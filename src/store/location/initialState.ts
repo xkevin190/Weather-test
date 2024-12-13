@@ -5,7 +5,7 @@ export interface ILocation {
   id: number;
 }
 
-export interface WeatherState {
+export interface LocationState {
   listLocation: Array<ILocation>;
   selectedLocation: ILocation | null;
   loading: boolean;
@@ -13,7 +13,7 @@ export interface WeatherState {
 }
 
 // Define the initial state
-export const initialState: WeatherState = {
+export const initialState: LocationState = {
   listLocation: [],
   selectedLocation: null,
   loading: false,
