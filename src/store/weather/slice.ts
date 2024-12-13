@@ -3,15 +3,13 @@ import { WeatherData } from '../../types/weather';
 import { initialState } from './initialState';
 import { getWeather, WeatherProvider } from '../../services/WeatherService';
 
-
-
 export const fetchWeatherData = createAsyncThunk<
   WeatherData,  
   string,       
 >(
   'weather/fetchWeatherData',
   async (location) => {
-   await  getWeather(WeatherProvider.WeatherApi, location);
+   await  getWeather(WeatherProvider.VisualCrossing, location);
   }
 );
 
