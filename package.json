@@ -7,7 +7,7 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest --config jest.config.js"
+    "test": "jest --verbose --detectOpenHandles --collectCoverage=false"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
