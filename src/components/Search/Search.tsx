@@ -21,7 +21,6 @@ const Search: React.FC<SearchProps> = ({ onchange }) => {
                 onChangeText={handleInputChange}
                 placeholder="Search"
             />
-                {/* {errors.search && <Text style={styles.error}>{errors.search.message}</Text>} */}
         </View>
     );
 };

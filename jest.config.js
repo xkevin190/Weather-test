@@ -1,5 +1,5 @@
 module.exports = {
-  preset: 'ts-jest',
+  preset: 'react-native',
   transform: {
     "^.+\\.[t|j]sx?$": "babel-jest",
   },
