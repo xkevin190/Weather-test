@@ -1,21 +1,26 @@
-
-export interface ILocation {
-  city: string;
-  country: strin
-  id: number;
-}
+import { WeatherProvider } from "../../services/WeatherService";
 
 export interface WeatherState {
-  listLocation: Array<ILocation>;
-  selectedLocation: ILocation | null;
-  loading: boolean;
-  error: boolean;
-}
-
-// Define the initial state
+    currentTemperature: number | null;
+    todayMaxTemperature: number | null;
+    todayMinTemperature: number | null;
+    sunriseTime: string | null;
+    sunsetTime: string | null;
+    currentWeather: string | null;
+    loading: boolean;
+    error: string | null;
+    provider: WeatherProvider | null;
+  }
+  
+  
 export const initialState: WeatherState = {
-  listLocation: [],
-  selectedLocation: null,
-  loading: false,
-  error: false,
-};
+    currentTemperature: null,
+    todayMaxTemperature: null,
+    todayMinTemperature: null,
+    sunriseTime: null,
+    sunsetTime: null,
+    currentWeather: null,
+    loading: false,
+    error: null,
+    provider: null,
+  };

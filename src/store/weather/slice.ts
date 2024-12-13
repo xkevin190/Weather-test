@@ -1,53 +1,45 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import { initialState, WeatherData } from './initialState';
-import { getCityListRequest } from '../../services/HttpsService';
+import { WeatherData } from '../../types/weather';
+import { initialState } from './initialState';
+import { getWeather, WeatherProvider } from '../../services/WeatherService';
 
-// Define TypeScript types for weather data
 
-export const getCityListThunk = createAsyncThunk<
-  WeatherData,
-  string,
-  { rejectValue: string }
->('weather/getLocation', async (cityName) => {
-  
-    const result =  await getCityListRequest(cityName);
-    
-    if(!result.successful) {
-      return Promise.reject(null);
-    }
 
-    return result.response?.geonames.map((item) => {
-       return {
-        city: item.name,
-        country: item.countryName,
-        id: item.geonameId
-       }
-    });
-  
-});
+export const fetchWeatherData = createAsyncThunk<
+  WeatherData,  
+  string,       
+>(
+  'weather/fetchWeatherData',
+  async (location) => {
+   await  getWeather(WeatherProvider.WeatherApi, location);
+  }
+);
 
-// Create a slice for weather data
+// Redux slice
 const weatherSlice = createSlice({
   name: 'weather',
   initialState,
-  reducers: {
-  
-  },
+  reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getCityListThunk.pending, (state) => {
-      state.loading = true;
-    });
-    builder.addCase(getCityListThunk.fulfilled, (state, action) => {
-      state.loading = false;
-      state.error = false;
-      state.listLocation = action.payload;
-    });
-    builder.addCase(getCityListThunk.rejected, (state, action) => {
-      state.loading = false;
-      state.error = true;
-    });
+    builder
+      .addCase(fetchWeatherData.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchWeatherData.fulfilled, (state, action: PayloadAction<WeatherData>) => {
+        state.loading = false;
+        state.currentTemperature = action.payload.currentTemperature;
+        state.todayMaxTemperature = action.payload.todayMaxTemperature;
+        state.todayMinTemperature = action.payload.todayMinTemperature;
+        state.sunriseTime = action.payload.sunriseTime;
+        state.sunsetTime = action.payload.sunsetTime;
+        state.currentWeather = action.payload.currentWeather;
+      })
+      .addCase(fetchWeatherData.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload || 'Failed to fetch data';
+      });
   },
 });
 
-export const {  } = weatherSlice.actions;
 export default weatherSlice.reducer;

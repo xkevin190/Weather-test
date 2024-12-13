@@ -1,8 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
 import useAppDispatch from "../../../GeneralHooks/useAppDispatch";
 import useAppSelector from "../../../GeneralHooks/useAppSelector";
-import { getCountryAndCitySelector, getListLocationSelector } from "../../../store/weather/selector";
-import { getCityListThunk } from "../../../store/weather/slice";
+import { getCountryAndCitySelector, getListLocationSelector } from "../../../store/location/selector";
+import { getCityListThunk, setSelectedLocation } from "../../../store/location/slice";
 import { NavigationProps } from "../../../types/navigation";
 import { useCallback } from "react";
 import { Location } from "../../../types/Location";
@@ -20,8 +20,10 @@ const useLocation =()=> {
     }
 
     const handleSelect = useCallback((selectedLocation: Location) => {
-        console.log(`Ciudad seleccionada: ${selectedLocation.city}, ${selectedLocation.country}`);
+        dispatch(setSelectedLocation(selectedLocation))
+        navigate("Details");
       }, []);
+
 
 
     return {selectedCountry, listLocation, findCity, handleSelect};

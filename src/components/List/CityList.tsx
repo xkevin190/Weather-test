@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { FlatList, Text, View, Button, StyleSheet } from 'react-native';
 import { styles } from './CityList.style';
 import { Location } from '../../types/Location';
-import { ILocation } from '../../store/weather/initialState';
+import { ILocation } from '../../store/location/initialState';
 
 
 type CityListProps = {
