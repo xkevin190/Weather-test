@@ -3,6 +3,12 @@
 ## Overview
 The Weather App is a React Native application developed as a practice project to integrate and utilize weather services, specifically focusing on testing the weather of a city. The app was built with a focus on implementing a Flux architecture, demonstrating state management and API integration in a mobile environment.
 
+
+## How the app works
+
+https://github.com/user-attachments/assets/cc5a692a-ffce-455f-8794-3b1cb0885f70
+
+
 ## Main Technology
 - **React Native**: The primary framework used for developing the mobile application.
 
@@ -39,11 +45,3 @@ Unit testing was implemented to ensure code quality and functionality. The follo
 2. **Testing React Native Components**:
    - **Library**: `testing-library/react-native`
    - **Purpose**: To test the UI components and ensure they behave as expected.
-
-## Summary
-The Weather App project serves as a practical demonstration of integrating weather services into a React Native application while implementing a Flux architecture. It incorporates modern libraries for navigation, state management, and testing, showcasing best practices in mobile app development.
-
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
