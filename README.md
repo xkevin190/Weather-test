@@ -1,78 +1,48 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Weather App Project Documentation
 
-# Getting Started
+## Overview
+The Weather App is a React Native application developed as a practice project to integrate and utilize weather services, specifically focusing on testing the weather of a city. The app was built with a focus on implementing a Flux architecture, demonstrating state management and API integration in a mobile environment.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Main Technology
+- **React Native**: The primary framework used for developing the mobile application.
 
-## Step 1: Start the Metro Server
+## Weather Providers
+The application integrates with the following weather APIs to fetch and display weather data:
+1. **VisualCrossingWeather**
+2. **WeatherApi**
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Architecture
+The app was developed using a **Flux architecture**, which organizes the application’s state and data flow in a unidirectional manner, ensuring predictable updates and efficient data management.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## External Libraries
+The following libraries were utilized to enhance the application’s functionality:
 
-```bash
-# using npm
-npm start
+### Picker
+- **Library**: `react-native-picker/picker`
+- **Purpose**: To implement dropdown menus for selecting options such as location or weather data filters.
 
-# OR using Yarn
-yarn start
-```
+### Navigation
+- **Library**: `react-navigation/native`
+- **Purpose**: To enable smooth navigation between different screens of the application.
 
-## Step 2: Start your Application
+### State Management
+- **Library**: `reduxjs/toolkit`
+- **Purpose**: To manage the global state of the application effectively and simplify complex state interactions.
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+## Testing
+Unit testing was implemented to ensure code quality and functionality. The following libraries were used for testing:
 
-### For Android
+1. **Testing React Hooks**:
+   - **Library**: `testing-library/react-hooks`
+   - **Purpose**: To test the functionality of custom React hooks used in the application.
 
-```bash
-# using npm
-npm run android
+2. **Testing React Native Components**:
+   - **Library**: `testing-library/react-native`
+   - **Purpose**: To test the UI components and ensure they behave as expected.
 
-# OR using Yarn
-yarn android
-```
+## Summary
+The Weather App project serves as a practical demonstration of integrating weather services into a React Native application while implementing a Flux architecture. It incorporates modern libraries for navigation, state management, and testing, showcasing best practices in mobile app development.
 
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
 - [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
